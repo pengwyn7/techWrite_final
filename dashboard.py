@@ -42,6 +42,7 @@ DATA_PATH = Path(__file__).resolve().parent / "enhanced_student_habits_performan
 
 # =========================================
 df = pd.read_csv(DATA_PATH).head(MAX_ROWS)
+print(f"Loaded {len(df)} rows from {DATA_PATH}")
 
 # Create simpler attendance ranges
 df['attendance_bucket'] = pd.cut(
