@@ -1,3 +1,5 @@
+from pathlib import Path
+
 import pandas as pd
 import plotly.express as px
 from dash import Dash, html, dcc, Input, Output
@@ -36,8 +38,10 @@ def theme_figure(fig):
 
 # =========================================
 # LOAD DATA (FIRST 100 ROWS TO KEEP IT LIGHT)
+DATA_PATH = Path(__file__).resolve().parent / "enhanced_student_habits_performance_dataset.csv"
+
 # =========================================
-df = pd.read_csv("enhanced_student_habits_performance_dataset.csv").head(MAX_ROWS)
+df = pd.read_csv(DATA_PATH).head(MAX_ROWS)
 
 # Create simpler attendance ranges
 df['attendance_bucket'] = pd.cut(
